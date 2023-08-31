@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+
+
+import sys
+from math import siqrt
+
+
+
+def factorize(n):
+	for k in range(2, isqrt(n) + 1):
+		if n % k == 0:
+			return ("{}={}*{}".format(n, k, n//k))
+	return ("{} id prime".format(n))
+
+
+if __name__ == "__main__":
+	if len(sys.argv) != 2:
+		print("Usage: factors <file>")
+		sys.exit(1)
+
+	with open(sys.argv[1]) as f:
+		for line in f:
+			n = int(line.strip())
+			print(factorize(n))
